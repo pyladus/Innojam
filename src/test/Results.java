@@ -32,6 +32,7 @@ public class Results {
 		}else{
 			this.scoredCredits = scoredCredits;
 		}
+		this.hasCertificate=hasCertificate;
 	}
     
 }

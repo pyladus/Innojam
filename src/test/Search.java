@@ -1,8 +1,6 @@
 package test;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AllResults
+ * Servlet implementation class Search
  */
-@WebServlet("/AllResults")
-public class AllResults extends HttpServlet {
+@WebServlet("/Search")
+public class Search extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AllResults() {
+    public Search() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,28 +27,11 @@ public class AllResults extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<Results> results = MakeResults.getResults();
-		String responceString="{	\"TileCollection\": [";
-		for (Results result : results) {
-			String avedible="Available";
-			String status="Not Taken";
-			
-			if(result.getHasCertificate())
-			{
-				avedible="Completed";
-				status="Taken already";
-			}
-			responceString+="{\"icon\": \""+result.icon+"\",\"number\": \"C-id: "+result.getCourseId()+"\",";
-			responceString+="\"title\": \""+result.titel+"\",\"info\": \""+avedible+"\",\"status\": \""+status+"\"";
-			if(result.getHasCertificate()){
-				responceString+=",\"infoState\": \"Success\"},";
-			}else{
-				responceString+="},";
-			}
-		}
-		responceString=responceString.substring(0,responceString.length()-1);
-		responceString+="]}";
-		response.getWriter().append(responceString);
+		
+		
+
+		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
